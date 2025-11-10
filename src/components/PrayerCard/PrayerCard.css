@@ -1,0 +1,94 @@
+.prayer__card {
+  width: 350px;
+  height: 350px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  border: solid 1px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+}
+
+.prayer__name {
+  font-family: "Cormorant Garamond", "Times New Roman", Times, serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 4px;
+  color: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  margin: 0;
+  padding: 2px 12px;
+  display: flex;
+  gap: 10px;
+  position: absolute;
+  top: 15px;
+}
+
+.prayer__like-button {
+  border: none;
+  background: none;
+  background-image: url(../../images/like-button.svg);
+  background-repeat: no-repeat;
+  transition: opacity 0.3s ease-in-out;
+  cursor: pointer;
+  opacity: 40%;
+  height: 18px;
+  width: 20px;
+  margin: auto;
+}
+
+.prayer__image {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  border: solid 1px rgba(0, 0, 0, 0.3);
+}
+
+.prayer__like-button:hover {
+  opacity: 100%;
+}
+
+.prayer__like-button_liked {
+  background-image: url(../../images/clicked-like-button.svg);
+  opacity: 100%;
+}
+
+.prayer__like-button_liked:hover {
+  opacity: 40%;
+}
+
+.prayer__like-button_hidden {
+  visibility: hidden;
+}
+
+@media screen and (max-width: 1290px) {
+  .prayer__card {
+    height: 300px;
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .prayer__card {
+    height: 250px;
+    width: 250px;
+  }
+
+  .prayer__name {
+    max-width: 72px;
+    top: 7px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .prayer__card {
+    height: 300px;
+    width: 300px;
+  }
+
+  .prayer__name {
+    max-width: fit-content;
+    top: 7px;
+  }
+}

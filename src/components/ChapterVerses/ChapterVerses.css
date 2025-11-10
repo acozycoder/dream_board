@@ -1,0 +1,13 @@
+.chapter-verses {
+  padding: 20px;
+  line-height: 1.6;
+}
+
+.chapter-verses__title {
+  padding: 27px 38px 8px;
+  border-bottom: 1px solid rgb(194, 191, 191);
+}
+
+.chapter-verses__verses {
+  margin-bottom: 1rem;
+}
