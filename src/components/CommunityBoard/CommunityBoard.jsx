@@ -14,9 +14,9 @@ function CommunityBoard({ prayerCards, handleCardClick }) {
       <div className="community__content">
         <p className="community__title">DREAM Community Prayer Board</p>
         <p className="community__verse">
-          Therefore confess your sins to each other and pray for each other so
+          "Therefore confess your sins to each other and pray for each other so
           that you may be healed. The prayer of a righteous person is powerful
-          and effective. James 5:16 NIV
+          and effective." James 5:16 NIV
         </p>
         <ul className="cards__list">
           {visiblePrayers.map((prayer) => (

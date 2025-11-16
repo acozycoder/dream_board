@@ -2,7 +2,7 @@ import "./Footer.css";
 
 import Navigation from "../Navigation/Navigation";
 
-function Footer() {
+function Footer({ isLoggedIn }) {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -11,7 +11,7 @@ function Footer() {
         Developed by Alicia McKinney | BibleApi {currentYear}{" "}
       </p>
       <div className="footer__navigation">
-        <Navigation />
+        <Navigation isLoggedIn={isLoggedIn} />
       </div>
     </footer>
   );

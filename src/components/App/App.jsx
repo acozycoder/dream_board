@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
 
 import "./App.css";
 
@@ -15,6 +17,8 @@ import Booklist from "../Booklist/Booklist";
 import Chapters from "../Chapters/Chapters";
 
 import CommunityBoard from "../CommunityBoard/CommunityBoard";
+import RegisterModal from "../RegisterModal/RegisterModal";
+import LoginModal from "../LoginModal/LoginModal";
 
 import { getBooks } from "../../utils/BibleApi";
 import { API_KEY, bibleVersionID } from "../../utils/constants";
@@ -28,6 +32,8 @@ function App() {
   const [books, setBooks] = useState([]);
   const [chapters, setChapters] = useState({});
   const [verse] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
 
   const closeActiveModal = () => {
     setActiveModal("");
@@ -88,6 +94,58 @@ function App() {
     handleSubmit(makeRequest);
   };
 
+  const handleRegister = () => {
+    setActiveModal("register");
+  };
+
+  const handleRegisterModalSubmit = (credentials) => {
+    setIsLoading(true);
+
+    const mockUser = {
+      id: 1,
+      name: "User Name",
+      email: credentials.email,
+    };
+
+    setCurrentUser(mockUser);
+    setIsLoggedIn(true);
+
+    setIsLoading(false);
+
+    closeActiveModal();
+  };
+
+  const handleLogin = () => {
+    setActiveModal("login");
+  };
+
+  const handleLoginModalSubmit = (credentials) => {
+    setIsLoading(true);
+
+    const mockUser = {
+      id: 1,
+      name: "User Name",
+      email: credentials.email,
+    };
+
+    setCurrentUser(mockUser);
+    setIsLoggedIn(true);
+
+    setIsLoading(false);
+
+    closeActiveModal();
+  };
+
+  const handleSwitch = () => {
+    if (activeModal === "register") {
+      setActiveModal("login");
+    }
+
+    if (activeModal === "login") {
+      setActiveModal("register");
+    }
+  };
+
   useEffect(() => {
     setIsLoading(true);
 
@@ -119,50 +177,60 @@ function App() {
 
   return (
     <div className="page">
-      <div className="page__content">
-        <Header handleAddPrayer={handleAddPrayer} />
-
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Main
-                prayerCards={prayerCards}
-                handleAddPrayer={handleAddPrayer}
-                handleCardClick={handleCardClick}
-                verse={verse}
-              />
-            }
-          />
-          <Route path="/about" element={<About prayerCards={prayerCards} />} />
-          <Route
-            path="/bible"
-            element={<Booklist books={books} chapters={chapters} />}
-          />
-          <Route
-            path="/chapter/:bookId"
-            element={
-              <Chapters
-                chapters={chapters}
-                setChapters={setChapters}
-                books={books}
-              />
-            }
+      <CurrentUserContext.Provider value={{ currentUser, isLoggedIn }}>
+        <div className="page__content">
+          <Header
+            handleAddPrayer={handleAddPrayer}
+            isLoggedIn={isLoggedIn}
+            handleRegister={handleRegister}
           />
 
-          <Route
-            path="/community"
-            element={
-              <CommunityBoard
-                handleCardClick={handleCardClick}
-                prayerCards={prayerCards}
-              />
-            }
-          />
-        </Routes>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Main
+                  isLoggedIn={isLoggedIn}
+                  prayerCards={prayerCards}
+                  handleAddPrayer={handleAddPrayer}
+                  handleCardClick={handleCardClick}
+                  verse={verse}
+                />
+              }
+            />
+            <Route
+              path="/about"
+              element={<About prayerCards={prayerCards} />}
+            />
+            <Route
+              path="/bible"
+              element={<Booklist books={books} chapters={chapters} />}
+            />
+            <Route
+              path="/chapter/:bookId"
+              element={
+                <Chapters
+                  chapters={chapters}
+                  setChapters={setChapters}
+                  books={books}
+                />
+              }
+            />
 
-        <Footer />
-      </div>
+            <Route
+              path="/community"
+              element={
+                <CommunityBoard
+                  handleCardClick={handleCardClick}
+                  prayerCards={prayerCards}
+                />
+              }
+            />
+          </Routes>
+
+          <Footer isLoggedIn={isLoggedIn} />
+        </div>
+      </CurrentUserContext.Provider>
       {activeModal === "add-prayer" && (
         <AddPrayerModal
           onClose={closeActiveModal}
@@ -175,6 +243,24 @@ function App() {
         card={selectedCard}
         onClose={closeActiveModal}
       />
+      {activeModal === "register" && (
+        <RegisterModal
+          activeModal={activeModal}
+          onClose={closeActiveModal}
+          onRegisterModalSubmit={handleRegisterModalSubmit}
+          isLoading={isLoading}
+          onSwitch={handleSwitch}
+        />
+      )}
+      {activeModal === "login" && (
+        <LoginModal
+          activeModal={activeModal}
+          onClose={closeActiveModal}
+          onLoginModalSubmit={handleLoginModalSubmit}
+          isLoading={isLoading}
+          onSwitch={handleSwitch}
+        />
+      )}
     </div>
   );
 }

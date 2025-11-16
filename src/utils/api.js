@@ -1,7 +1,21 @@
 import defaultPrayerCards from "../utils/prayerCards";
+import { BASE_URL } from "./constants";
 
 const checkResponse = (res) => {
   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
+};
+
+const getUserInfo = (token) => {
+  return fetch(`${BASE_URL}/users/me`, {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  }).then((res) => {
+    return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
+  });
 };
 
 const getPrayers = () => {
@@ -29,4 +43,4 @@ const addPrayer = ({ title, prayer, imageUrl }) => {
   return Promise.resolve(newPrayer);
 };
 
-export { checkResponse, getPrayers, addPrayer };
+export { checkResponse, getPrayers, addPrayer, getUserInfo };

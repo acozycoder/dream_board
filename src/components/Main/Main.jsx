@@ -2,14 +2,23 @@ import "./Main.css";
 import AboutInfo from "../AboutInfo/AboutInfo";
 import CommunityBoard from "../CommunityBoard/CommunityBoard";
 
-function Main({ prayerCards, handleCardClick }) {
+function Main({ isLoggedIn, prayerCards, handleCardClick }) {
   return (
     <main className="main">
-      <CommunityBoard
-        prayerCards={prayerCards}
-        handleCardClick={handleCardClick}
-      />
-      <AboutInfo />
+      {isLoggedIn ? (
+        <CommunityBoard
+          prayerCards={prayerCards}
+          handleCardClick={handleCardClick}
+        />
+      ) : (
+        <div>
+          <CommunityBoard
+            prayerCards={prayerCards}
+            handleCardClick={handleCardClick}
+          />
+          <AboutInfo />
+        </div>
+      )}
     </main>
   );
 }
