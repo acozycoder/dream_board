@@ -1,0 +1,27 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 33px 32px;
+  background-color: #fff;
+}
+
+.footer__text {
+  font-family: "Cormorant Garamond", "Times New Roman", Times, serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  margin-bottom: 24;
+}
+
+@media screen and (max-width: 650px) {
+  .footer__text {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .footer__text {
+    font-size: 10px;
+  }
+}

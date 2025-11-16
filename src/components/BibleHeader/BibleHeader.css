@@ -1,0 +1,17 @@
+.bible {
+  padding: 0 38px 24px;
+}
+
+.bible__header {
+  font-family: "Cormorant Garamond", "Times New Roman", Times, serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.bible__copyright {
+  font-family: "Cormorant Garamond", "Times New Roman", Times, serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1;
+}

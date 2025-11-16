@@ -1,0 +1,84 @@
+.prayer-modal__content {
+  width: 368px;
+  height: 500px;
+  padding: 0;
+  position: relative;
+}
+
+.prayer-modal__white-close-button {
+  background-image: url(src/images/close-icon.svg);
+  top: 20px;
+  right: 20px;
+  z-index: 1;
+  opacity: 80%;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.prayer-modal__white-close-button:hover {
+  opacity: 100%;
+}
+
+.prayer__delete-button {
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+  font-family: "Cormorant Garamond", "Times New Roman", Times, serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.2;
+  border: none;
+  background: none;
+  color: rgb(185, 155, 142);
+  height: 24px;
+  width: 101px;
+  cursor: pointer;
+  margin: 0 0 12px 0;
+  padding: 0px;
+  transition: color 0.3s ease-in-out;
+}
+
+.prayer__delete-button:hover {
+  color: rgb(190, 90, 47);
+}
+
+.modal__delete-button_hidden {
+  display: none;
+}
+
+.prayer-modal__image {
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.prayer-modal__caption-button {
+  display: flex;
+}
+
+.prayer-modal__title {
+  font-family: "Cormorant Garamond", "Times New Roman", Times, serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.2;
+  margin: 0 0 8px 0;
+  max-width: fit-content;
+}
+
+.prayer-modal__prayer {
+  margin: 0;
+  font-family: "Cormorant Garamond", "Times New Roman", Times, serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.2;
+  max-width: 300px;
+}
+
+.prayer-modal__info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: absolute;
+  top: 50px;
+  left: 35px;
+}
