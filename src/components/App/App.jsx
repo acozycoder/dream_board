@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 
 import "./App.css";
@@ -115,9 +114,6 @@ function App() {
     closeActiveModal();
   };
 
-  const handleLogin = () => {
-    setActiveModal("login");
-  };
 
   const handleLoginModalSubmit = (credentials) => {
     setIsLoading(true);
