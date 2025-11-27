@@ -55,7 +55,7 @@ All components inside of dream has a responsive design, allows users across mult
 
 ## Explore the site
 
-[Click here](https://acozycoder.github.io/dream_board/) to explore the DREAM site. Once there, you can create an account and add prayers to the community board!
+[Click here](https://acozycoder.github.io/#/dream_board/) to explore the DREAM site. Once there, you can create an account and add prayers to the community board!
 
 ## Upcoming features
 
