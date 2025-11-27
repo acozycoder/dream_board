@@ -114,7 +114,6 @@ function App() {
     closeActiveModal();
   };
 
-
   const handleLoginModalSubmit = (credentials) => {
     setIsLoading(true);
 
@@ -183,7 +182,7 @@ function App() {
 
           <Routes>
             <Route
-              path="/"
+              path="/dream_board"
               element={
                 <Main
                   isLoggedIn={isLoggedIn}

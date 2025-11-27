@@ -1,4 +1,5 @@
 import "./PrayerModal.css";
+import CloseIcon from "../../images/close-icon.png";
 
 function prayerModal({ activeModal, onClose, card }) {
   return (
@@ -9,6 +10,7 @@ function prayerModal({ activeModal, onClose, card }) {
           type="button"
           className="modal__close-button prayer-modal__white-close-button"
         />
+        <img src={CloseIcon} className="modal__close-button_image" alt="X" />
         <div className="prayer-modal__info">
           <img
             className="prayer-modal__image"

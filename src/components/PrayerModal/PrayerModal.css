@@ -6,16 +6,9 @@
 }
 
 .prayer-modal__white-close-button {
-  background-image: url(src/images/close-icon.svg);
   top: 20px;
   right: 20px;
   z-index: 1;
-  opacity: 80%;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.prayer-modal__white-close-button:hover {
-  opacity: 100%;
 }
 
 .prayer__delete-button {

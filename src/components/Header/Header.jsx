@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 function Header({ handleAddPrayer, isLoggedIn, handleRegister }) {
   return (
     <header className="header">
-      <NavLink to="/">
+      <NavLink to="https://acozycoder.github.io/dream_board/">
         <img className="header__logo" src={Logo} alt="dream logo" />
       </NavLink>
       {isLoggedIn ? (
